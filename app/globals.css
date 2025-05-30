@@ -1,0 +1,423 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for Pet Service */
+@layer components {
+  .pet-gradient {
+    @apply bg-gradient-to-br from-cyan-400/60 via-green-400/70 to-purple-400/50;
+  }
+
+  .glass-effect {
+    @apply bg-white/95 backdrop-blur-sm;
+  }
+
+  .animate-in {
+    animation: slideInFromLeft 0.3s ease-out;
+  }
+
+  .slide-in-from-left {
+    animation: slideInFromLeft 0.3s ease-out;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fix for calendar component */
+.rdp {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #0891b2;
+  --rdp-background-color: #0891b2;
+  --rdp-accent-color-dark: #0e7490;
+  --rdp-background-color-dark: #0e7490;
+  --rdp-outline: 2px solid var(--rdp-accent-color);
+  --rdp-outline-selected: 3px solid var(--rdp-accent-color);
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .mobile-padding {
+    @apply px-4;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Pet Care Website Specific Styles */
+
+/* Background and overlay styles */
+.header-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100vw;
+  height: 20rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-background-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(0.1) brightness(0.75) blur(2px);
+}
+
+.header-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 20rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom right, rgba(34, 211, 238, 0.6), rgba(34, 197, 94, 0.7), rgba(168, 85, 247, 0.5));
+}
+
+.page-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.page-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+/* Animation styles */
+.notification-enter {
+  animation: slideInFromLeft 0.3s ease-out;
+}
+
+/* Service grid responsive styles */
+.service-image-container {
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+/* Contact form styles */
+.contact-map {
+  width: 100%;
+  height: 230px;
+  border: 0;
+  border-radius: 1rem;
+}
+
+/* Community section gradient */
+.community-gradient {
+  background: linear-gradient(to right, rgba(253, 224, 71, 0.9), rgba(251, 146, 60, 0.8));
+  backdrop-filter: blur(4px);
+}
+
+/* Footer styles */
+.footer-background {
+  background: rgba(8, 145, 178, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .header-background,
+  .header-overlay {
+    height: 24rem;
+  }
+}
+
+/* Loading animation for buttons */
+.loading-spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pet image hover effects */
+.pet-image-hover {
+  transition: transform 0.2s ease-in-out;
+}
+
+.pet-image-hover:hover {
+  transform: scale(1.05);
+}
+
+/* Notification positioning */
+.notification-container {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.notification-item {
+  background-color: rgb(34, 197, 94);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* User info display */
+.user-info-container {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: white;
+}
+
+/* Navigation buttons */
+.nav-button-outline {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-button-outline:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-button-solid {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-button-solid:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Header navigation positioning */
+.header-nav {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Header content positioning */
+.header-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  padding-top: 4rem;
+  padding-bottom: 1.5rem;
+}
+
+/* Pet images grid */
+.pet-images-grid {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pet-image-item {
+  width: 5rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 2px solid white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.pet-image-item:hover {
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .pet-image-item {
+    width: 6rem;
+    height: 3.5rem;
+  }
+}
+
+/* Intro images grid */
+.intro-images-grid {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.intro-image-item {
+  width: 7rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 2px solid rgb(207, 250, 254);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.intro-image-item:hover {
+  transform: scale(1.05);
+}
+
+/* Tips images grid */
+.tips-images-grid {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tips-image-item {
+  width: 7rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 2px solid rgb(207, 250, 254);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.tips-image-item:hover {
+  transform: scale(1.05);
+}
+
+/* Service category badge */
+.service-category-badge {
+  background: linear-gradient(to right, rgb(253, 186, 116), rgb(254, 240, 138));
+  color: rgb(55, 65, 81);
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Community section links */
+.community-link-facebook {
+  display: inline-block;
+  background: rgb(254, 249, 195);
+  color: rgb(234, 88, 12);
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgb(254, 215, 170);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.community-link-facebook:hover {
+  background: rgb(255, 237, 213);
+}
+
+.community-link-zalo {
+  display: inline-block;
+  background: rgb(239, 246, 255);
+  color: rgb(37, 99, 235);
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgb(191, 219, 254);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.community-link-zalo:hover {
+  background: rgb(219, 234, 254);
+}
